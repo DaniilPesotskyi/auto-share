@@ -1,0 +1,36 @@
+.button {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  border-radius: 12px;
+  background-color: var(--primary-clr);
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--btn-text-clr);
+
+  transition: background-color 250ms, transform 250ms;
+}
+
+.button:hover {
+  background-color: var(--btn-hover-bg-clr);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.small {
+  padding: 15px;
+}
+
+.common {
+  padding: 14px 33px;
+}
+
+.large {
+  padding: 12px 100px;
+}
