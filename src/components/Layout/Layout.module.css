@@ -1,0 +1,112 @@
+.header {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 100px;
+
+  background-color: var(--header-bg-clr);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+.navigation {
+  width: 100%;
+  margin-right: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-text-clr);
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.navigationList {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.navigationLink {
+  display: block;
+
+  position: relative;
+
+  width: fit-content;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main-text-clr);
+
+  transition: color 250ms;
+}
+
+.navigationLink::after {
+  content: " ";
+
+  position: absolute;
+
+  top: 70%;
+  right: 0;
+
+  width: 0%;
+  height: 1px;
+
+  background-color: var(--main-text-clr);
+
+  transition: width 250ms;
+}
+
+.navigationLink:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.favLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.heartIcon {
+  width: 18px;
+  height: 18px;
+
+  fill: transparent;
+  stroke: var(--icon-bg-clr);
+}
+
+.themeBtn {
+  margin-left: auto;
+
+  background-color: #003c81;
+}
+
+.themeBtn:hover {
+  background-color: #001f42;
+}
+
+.themeIcon {
+  width: 20px;
+  height: 20px;
+}

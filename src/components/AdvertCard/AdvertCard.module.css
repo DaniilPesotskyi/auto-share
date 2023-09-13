@@ -1,0 +1,79 @@
+.advertWrap {
+  position: relative;
+  width: 274px;
+}
+
+.favBtn {
+}
+
+.imageWrap {
+  width: 274px;
+  height: 268px;
+  margin-bottom: 14px;
+
+  border-radius: 14px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--main-text-clr);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--main-text-clr);
+}
+
+.model {
+  color: var(--primary-clr);
+}
+
+.price {
+  margin-left: auto;
+}
+
+.characteristicList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+
+  margin-bottom: 28px;
+}
+
+.characteristicItem {
+  position: relative;
+
+  white-space: nowrap;
+
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--translucency-text-clr);
+}
+
+.characteristicItem:not(:last-child)::before {
+  content: " ";
+
+  display: block;
+
+  position: absolute;
+  right: -6px;
+  top: 0;
+
+  width: 1px;
+  height: 16px;
+
+  background-color: var(--highly-translucent-text-clr);
+}

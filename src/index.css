@@ -11,11 +11,16 @@
   --secondary-bg-clr: #f7f7fb;
   --backdrop-clr: rgba(18, 20, 23, 0.5);
 
+  --icon-bg-clr: #121417;
+
   /* TEXT */
   --main-text-clr: #121417;
   --secondary-text-clr: #8a8a89;
   --translucency-text-clr: rgba(18, 20, 23, 0.5);
   --highly-translucent-text-clr: rgba(18, 20, 23, 0.2);
+
+  /* HEADER */
+  --header-bg-clr: #fcfcfc;
 
   /* Button */
   --btn-text-clr: #ffffff;
@@ -30,8 +35,9 @@
 
 body {
   margin: 0;
-  height: 100vh;
 
+  font-family: "Manrope", sans-serif;
+  line-height: normal;
   font-style: normal;
 }
 
