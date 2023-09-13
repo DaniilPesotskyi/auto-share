@@ -1,4 +1,5 @@
 import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
 import css from "./AdvertCard.module.css";
 
 const AdvertCard = ({ data }) => {
@@ -14,13 +15,17 @@ const AdvertCard = ({ data }) => {
     rentalCompany,
   } = data;
 
+  const onStringCut = (string, qnt) => {
+    if (string.lenght <= 5) return string;
+    return `${string.slice(0, qnt)}...`;
+  };
+
   const getRandomAccessory = () => {
     const accessoryIndex = Math.round(
       Math.random() * (0 + (accessories.length - 1))
     );
-    if(accessories[accessoryIndex].length >= 28) {
-        return `${accessories[accessoryIndex].slice(0, 28)}...`
-        
+    if (accessories[accessoryIndex].length >= 24) {
+      return onStringCut(accessories[accessoryIndex], 24);
     }
     return accessories[accessoryIndex];
   };
@@ -35,7 +40,9 @@ const AdvertCard = ({ data }) => {
 
   return (
     <div className={css.advertWrap}>
-      <button className={css.favBtn} type="button"></button>
+      <button className={css.favBtn} type="button">
+        <Icon id={"heart"} className={css.favIcon} />
+      </button>
       <div
         className={css.imageWrap}
         style={{ backgroundImage: `url('${img}')` }}
@@ -49,7 +56,9 @@ const AdvertCard = ({ data }) => {
       <ul className={css.characteristicList}>
         <li className={css.characteristicItem}>{getCityName()}</li>
         <li className={css.characteristicItem}>{getCountryName()}</li>
-        <li className={css.characteristicItem}>{rentalCompany}</li>
+        <li className={css.characteristicItem}>
+          {onStringCut(rentalCompany, 10)}
+        </li>
         <li className={css.characteristicItem}>{type}</li>
         <li className={css.characteristicItem}>{make}</li>
         <li className={css.characteristicItem}>{id}</li>

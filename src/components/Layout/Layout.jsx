@@ -34,8 +34,8 @@ const Layout = () => {
               </li>
             </ul>
           </nav>
-          <Button className={cn(css.themeBtn)} size="small" type="button">
-            <Icon className={cn(css.themeIcon)} id={"theme"} />
+          <Button className={css.themeBtn} size="small" type="button">
+            <Icon className={css.themeIcon} id={"theme"} />
           </Button>
         </div>
       </header>

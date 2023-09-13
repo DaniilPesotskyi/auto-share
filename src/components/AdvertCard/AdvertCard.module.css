@@ -4,6 +4,35 @@
 }
 
 .favBtn {
+  position: absolute;
+
+  right: 14px;
+  top: 14px;
+
+  transition: transform 250ms;
+}
+
+.favIcon {
+  width: 18px;
+  height: 18px;
+
+  fill: transparent;
+  stroke: #ffffff;
+
+  transition: fill 250ms, stroke 250ms;
+}
+
+.favIcon:hover {
+  fill: rgb(148, 155, 255);
+}
+
+.favBtn:active {
+  transform: scale(1.2);
+}
+
+.favIcon:active {
+  fill: var(--primary-clr);
+  stroke: none;
 }
 
 .imageWrap {

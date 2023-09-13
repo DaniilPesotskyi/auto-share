@@ -97,16 +97,19 @@
 }
 
 .themeBtn {
+  margin: 0;
   margin-left: auto;
 
-  background-color: #003c81;
+  background-color: transparent;
 }
 
 .themeBtn:hover {
-  background-color: #001f42;
+  background-color: #abd1ff;
 }
 
 .themeIcon {
   width: 20px;
   height: 20px;
+
+  fill: #ffffff;
 }
