@@ -1,8 +1,15 @@
+import { Helmet } from "react-helmet";
+
 const FavoritePage = () => {
   return (
-    <div>
-      <h1>Favorite</h1>
-    </div>
+    <>
+      {/* <Helmet>
+        <title>Favorite</title>
+      </Helmet> */}
+      <div>
+        <h1>Favorite</h1>
+      </div>
+    </>
   );
 };
 
