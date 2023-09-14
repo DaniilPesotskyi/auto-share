@@ -1,9 +1,10 @@
 import css from "./Button.module.css";
 import cn from "classnames";
 
-const Button = ({ className, size = "common", children }) => {
+const Button = ({ className, size = "common", onClick, children }) => {
   return (
     <button
+      onClick={onClick}
       type="button"
       className={cn(className, css.button, {
         [css.small]: size === "small",

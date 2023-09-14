@@ -1,3 +1,34 @@
+.filters {
+  display: flex;
+  align-items: end;
+  gap: 18px;
+
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.filterLabel {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--secondary-text-clr);
+}
+
+.distanceFilter {
+  display: flex;
+  align-items: center;
+}
+
+.distanceForm:nth-child(1) {
+}
+
+.distanceForm:nth-child(1) {
+}
+
 .catalogList {
   display: flex;
   flex-wrap: wrap;

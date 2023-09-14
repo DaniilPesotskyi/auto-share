@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 425px;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 85px;
+  height: 85px;
+
+  stroke: var(--icon-bg-clr);
+}
+
+.title {
+  width: fit-content;
+  font-size: 64px;
+  font-weight: 500;
+  color: var(--main-text-clr);
+}

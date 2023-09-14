@@ -13,6 +13,7 @@ const AdvertCard = ({ data }) => {
     accessories,
     rentalPrice,
     rentalCompany,
+    mileage,
   } = data;
 
   const onStringCut = (string, qnt) => {
@@ -61,7 +62,7 @@ const AdvertCard = ({ data }) => {
         </li>
         <li className={css.characteristicItem}>{type}</li>
         <li className={css.characteristicItem}>{make}</li>
-        <li className={css.characteristicItem}>{id}</li>
+        <li className={css.characteristicItem}>{mileage}</li>
         <li className={css.characteristicItem}>{getRandomAccessory()}</li>
       </ul>
       <Button size="large">Learn more</Button>

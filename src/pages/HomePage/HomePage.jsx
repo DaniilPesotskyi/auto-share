@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet";
-import Select from "../../components/Select/Select";
+import css from "./HomePage.module.css";
 
-const selectors = ["wow", "wow1", "wow2"];
+import Icon from "../../components/Icon/Icon";
+// import { Helmet } from "react-helmet";
 
 const HomePage = () => {
   return (
@@ -9,21 +9,10 @@ const HomePage = () => {
       {/* <Helmet>
         <title>Homepage</title>
       </Helmet> */}
-      <div>
-        <h1>Home</h1>
-        <br />
-        <br />
-        <br />
-        <Select
-          size={"common"}
-          placeholder={"Enter the text"}
-          selects={selectors}
-        />
-        <br />
-        <br />
-        <br />
-        <Select size={"small"} placeholder={"To $"} selects={selectors} />
-      </div>
+      <section className={css.hero}>
+        <Icon id={"logo"} className={css.logo} />
+        <h1 className={css.title}>AutoShare</h1>
+      </section>
     </>
   );
 };
