@@ -1,6 +1,7 @@
-// import css from "./App.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Layout from "../Layout/Layout";
 import HomePage from "../../pages/HomePage/HomePage";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/favorites" element={<FavoritePage />} />
         </Route>
       </Routes>
+      <ToastContainer position="top-center" />
     </>
   );
 }

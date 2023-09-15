@@ -1,10 +1,14 @@
+import css from "./AdvertCard.module.css";
+
+import { useState } from "react";
+import cn from "classnames";
+
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
-import css from "./AdvertCard.module.css";
+import AdvertModal from "../AdvertModal/AdvertModal";
 
 const AdvertCard = ({ data }) => {
   const {
-    id,
     year,
     make,
     model,
@@ -12,13 +16,15 @@ const AdvertCard = ({ data }) => {
     img,
     accessories,
     rentalPrice,
+    address,
     rentalCompany,
     mileage,
   } = data;
 
-  const onStringCut = (string, qnt) => {
-    if (string.lenght <= 5) return string;
-    return `${string.slice(0, qnt)}...`;
+  const [isModalOpen, setIsOpenModal] = useState(false);
+
+  const onModalToggle = () => {
+    setIsOpenModal(!isModalOpen);
   };
 
   const getRandomAccessory = () => {
@@ -26,23 +32,23 @@ const AdvertCard = ({ data }) => {
       Math.random() * (0 + (accessories.length - 1))
     );
     if (accessories[accessoryIndex].length >= 24) {
-      return onStringCut(accessories[accessoryIndex], 24);
+      return accessories[accessoryIndex];
     }
     return accessories[accessoryIndex];
   };
 
-  const getCityName = () => {
-    return "Dnipro";
+  const getCountryName = () => {
+    return address.split(",").slice(-1).join(",").trim();
   };
 
-  const getCountryName = () => {
-    return "Ukraine";
+  const getCityName = () => {
+    return address.split(",")[address.split(",").length - 2].trim();
   };
 
   return (
     <div className={css.advertWrap}>
       <button className={css.favBtn} type="button">
-        <Icon id={"heart"} className={css.favIcon} />
+        <Icon id={"heart"} className={cn(css.favIcon)} />
       </button>
       <div
         className={css.imageWrap}
@@ -57,15 +63,16 @@ const AdvertCard = ({ data }) => {
       <ul className={css.characteristicList}>
         <li className={css.characteristicItem}>{getCityName()}</li>
         <li className={css.characteristicItem}>{getCountryName()}</li>
-        <li className={css.characteristicItem}>
-          {onStringCut(rentalCompany, 10)}
-        </li>
+        <li className={css.characteristicItem}>{rentalCompany}</li>
         <li className={css.characteristicItem}>{type}</li>
-        <li className={css.characteristicItem}>{make}</li>
+        <li className={css.characteristicItem}>{model}</li>
         <li className={css.characteristicItem}>{mileage}</li>
         <li className={css.characteristicItem}>{getRandomAccessory()}</li>
       </ul>
-      <Button size="large">Learn more</Button>
+      <Button size="large" onClick={onModalToggle}>
+        Learn more
+      </Button>
+      {isModalOpen && <AdvertModal data={data} onClose={onModalToggle} />}
     </div>
   );
 };

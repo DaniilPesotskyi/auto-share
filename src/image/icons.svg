@@ -12,5 +12,8 @@
 <symbol id="theme" viewBox="0 0 32 32">
 <path style="" d="M16 30.222c7.855 0 14.222-6.367 14.222-14.222s-6.367-14.222-14.222-14.222v0c-7.855 0-14.222 6.367-14.222 14.222s6.367 14.222 14.222 14.222v0zM16 28.089v-24.178c6.677 0 12.089 5.412 12.089 12.089s-5.412 12.089-12.089 12.089v0z"></path>
 </symbol>
+<symbol id="close" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M24 8l-16 16M8 8l16 16"></path>
+</symbol>
 </defs>
 </svg>

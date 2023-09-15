@@ -3,6 +3,7 @@ import { fetchAdverts } from "./operations";
 
 const initialState = {
   items: [],
+  favorites: [],
   isLoading: false,
   error: null,
 };
@@ -31,6 +32,16 @@ const advertsSlice = createSlice({
         (action) => action.type.endsWith("/rejected"),
         handleRejected
       );
+  },
+  reducers: {
+    addFavorite: (state, { payload }) => {
+      state.favorites.push(payload);
+    },
+    removeFavorite: (state, { payload }) => {
+      state.favorites = state.favorites.filter(
+        (item) => item.id !== payload.id
+      );
+    },
   },
 });
 

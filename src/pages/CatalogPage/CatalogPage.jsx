@@ -1,5 +1,4 @@
 import css from "./CatalogPage.module.css";
-
 // import { Helmet } from "react-helmet";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -47,6 +46,10 @@ const CatalogPage = () => {
   }, [dispatch]);
 
   const onFilterSubmit = () => {
+    if (brand === "" || price === "" || from <= 0 || to <= 0) {
+      toast.error("All fields must be filled");
+      return;
+    }
     dispatch(setBrandFilter(brand));
     dispatch(setPriceFilter(price));
     dispatch(setFromFilter(from));
