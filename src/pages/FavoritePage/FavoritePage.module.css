@@ -1,6 +1,7 @@
 .pageTitle {
   margin-bottom: 50px;
 
+  text-align: center;
   color: var(--main-text-clr);
 }
 
@@ -8,4 +9,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 50px 29px;
+}
+
+.nothingLetter {
+  margin: 0 auto;
+
+  font-size: 36px;
+  color: var(--main-text-clr);
 }

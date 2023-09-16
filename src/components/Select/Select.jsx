@@ -23,26 +23,47 @@ const Select = ({ placeholder, size, selects, onChange }) => {
   }, [onChange, value]);
 
   const onSelectMenuRender = () => {
+    const selectsToRender = selects.filter((s) =>
+      s.toLowerCase().includes(value.toLowerCase())
+    );
+
     return (
       <ul className={css.selectMenuList}>
-        {selects
-          .filter((s) => s.toLowerCase().includes(value.toLowerCase()))
-          .map((s) => {
-            return (
-              <li key={s} className={css.selectMenuItem}>
-                <button
-                  onClick={() => {
-                    setValue(s);
-                    setIsChosen(true);
-                    setIsOpen(false);
-                  }}
-                  className={css.selectMenuBtn}
-                >
-                  {s}
-                </button>
-              </li>
-            );
-          })}
+        {selectsToRender.length > 0
+          ? selects
+              .filter((s) => s.toLowerCase().includes(value.toLowerCase()))
+              .map((s) => {
+                return (
+                  <li key={s} className={css.selectMenuItem}>
+                    <button
+                      onClick={() => {
+                        setValue(s);
+                        setIsChosen(true);
+                        setIsOpen(false);
+                      }}
+                      className={css.selectMenuBtn}
+                    >
+                      {s}
+                    </button>
+                  </li>
+                );
+              })
+          : selects.map((s) => {
+              return (
+                <li key={s} className={css.selectMenuItem}>
+                  <button
+                    onClick={() => {
+                      setValue(s);
+                      setIsChosen(true);
+                      setIsOpen(false);
+                    }}
+                    className={css.selectMenuBtn}
+                  >
+                    {s}
+                  </button>
+                </li>
+              );
+            })}
       </ul>
     );
   };

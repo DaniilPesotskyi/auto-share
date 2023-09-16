@@ -33,4 +33,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 50px 29px;
+
+  margin-bottom: 100px;
+}
+
+.loadmoreBtn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+  color: var(--primary-clr);
 }

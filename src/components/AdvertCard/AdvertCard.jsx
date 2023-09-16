@@ -60,19 +60,25 @@ const AdvertCard = ({ data }) => {
   };
 
   const onFavoriteToggle = () => {
-    if(isFavoriteCheck()) {
-      dispatch(removeFavorite(id))
-      return
+    if (isFavoriteCheck()) {
+      dispatch(removeFavorite(id));
+      return;
     }
     dispatch(addFavorite(data));
   };
 
+  const formatedMileage =
+    mileage.toString().slice(0, 1) + "," + mileage.toString().slice(1);
+
   return (
     <div className={css.advertWrap}>
       <button className={css.favBtn} type="button" onClick={onFavoriteToggle}>
-        <Icon id={"heart"} className={cn(css.favIcon, {
-          [css.favActive]: isFavoriteCheck()
-        })} />
+        <Icon
+          id={"heart"}
+          className={cn(css.favIcon, {
+            [css.favActive]: isFavoriteCheck(),
+          })}
+        />
       </button>
       <div
         className={css.imageWrap}
@@ -80,7 +86,8 @@ const AdvertCard = ({ data }) => {
       ></div>
       <div className={css.header}>
         <h2 className={css.title}>
-          {make} <span className={css.model}>{model}</span>, {year}
+          {make} <span className={css.model}>{`${model.substring(0, 4)}`}</span>
+          , {year}
         </h2>
         <span className={css.price}>{rentalPrice}</span>
       </div>
@@ -90,8 +97,10 @@ const AdvertCard = ({ data }) => {
         <li className={css.characteristicItem}>{rentalCompany}</li>
         <li className={css.characteristicItem}>{type}</li>
         <li className={css.characteristicItem}>{model}</li>
-        <li className={css.characteristicItem}>{mileage}</li>
-        <li className={css.characteristicItem}>{getRandomAccessory()}</li>
+        <li className={css.characteristicItem}>{formatedMileage}</li>
+        <li
+          className={css.characteristicItem}
+        >{`${getRandomAccessory().substring(0, 8)}...`}</li>
       </ul>
       <Button size="large" onClick={onModalToggle}>
         Learn more

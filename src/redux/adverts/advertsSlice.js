@@ -3,6 +3,7 @@ import { fetchAdverts } from "./operations";
 
 const initialState = {
   items: [],
+  page: 1,
   favorites: [],
   isLoading: false,
   error: null,
@@ -23,9 +24,10 @@ const advertsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAdverts.fulfilled, (state, { payload }) => {
+        state.page = state.page + 1;
         state.isLoading = false;
         state.error = null;
-        state.items = payload;
+        state.items = [...state.items, ...payload];
       })
       .addMatcher((action) => action.type.endsWith("/pending"), handlePending)
       .addMatcher(

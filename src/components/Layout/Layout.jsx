@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <>
       <header className={css.header} data-theme="light">
-        <div className={css.container}>
+        <div className={css.headerContainer}>
           <nav className={css.navigation}>
             <NavLink className={css.logoWrap} to="/">
               <Icon id={"logo"} className={css.logo}></Icon>

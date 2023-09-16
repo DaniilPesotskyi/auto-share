@@ -57,6 +57,9 @@ const AdvertModal = ({ data, onClose }) => {
   const driverLicense = strings[1];
   const requires = strings[2];
 
+  const formatedMileage =
+    mileage.toString().slice(0, 1) + "," + mileage.toString().slice(1);
+
   return (
     <div className={css.backdrop} onClick={onBackdropClick}>
       <div className={css.modal}>
@@ -96,7 +99,7 @@ const AdvertModal = ({ data, onClose }) => {
           <li className={css.conditionsItem}>{driverLicense}</li>
           <li className={css.conditionsItem}>{requires}</li>
           <li className={css.conditionsItem}>
-            Mileage: <span className={css.conditionsValue}>{mileage}</span>
+            Mileage: <span className={css.conditionsValue}>{formatedMileage}</span>
           </li>
           <li className={css.conditionsItem}>
             Price: <span className={css.conditionsValue}>{rentalPrice}</span>

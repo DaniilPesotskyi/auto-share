@@ -12,14 +12,17 @@ const FavoritePage = () => {
     <div>
       <h1 className={css.pageTitle}>Favorite</h1>
       <ul className={css.catalogList}>
-        {favorites &&
+        {favorites.length > 0 ? (
           favorites.map((data) => {
             return (
               <li key={data.id} className={css.catalogItem}>
                 <AdvertCard data={data} />
               </li>
             );
-          })}
+          })
+        ) : (
+          <p className={css.nothingLetter}>You haven't added any cars yet :(</p>
+        )}
       </ul>
     </div>
   );

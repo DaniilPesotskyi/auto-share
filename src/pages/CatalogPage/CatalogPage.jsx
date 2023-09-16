@@ -1,9 +1,8 @@
 import css from "./CatalogPage.module.css";
-// import { Helmet } from "react-helmet";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAdverts } from "../../redux/adverts/selectors";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchAdverts } from "../../redux/adverts/operations";
 
 import { brands, prices } from "../../services/selects.js";
@@ -27,6 +26,8 @@ import {
 import { toast } from "react-toastify";
 
 const CatalogPage = () => {
+  const isMountedRef = useRef(false);
+
   const adverts = useSelector(selectAdverts);
 
   const brandsFilter = useSelector(selectBrandFilter);
@@ -42,7 +43,10 @@ const CatalogPage = () => {
   const [to, setTo] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchAdverts());
+    if (!isMountedRef.current) {
+      dispatch(fetchAdverts());
+      isMountedRef.current = true;
+    }
   }, [dispatch]);
 
   const onFilterSubmit = () => {
@@ -56,6 +60,9 @@ const CatalogPage = () => {
     dispatch(setToFilter(to));
   };
 
+  const onLoadmore = () => {
+    dispatch(fetchAdverts());
+  };
   const filteredAdverts = adverts.filter((advert) => {
     return (
       advert.make === brandsFilter &&
@@ -70,10 +77,7 @@ const CatalogPage = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Catalog</title>
-      </Helmet> */}
-      <div>
+      <div className={css.catalogCont}>
         <div className={css.filters}>
           <div className={css.filter}>
             <span className={css.filterLabel}>Car brand</span>
@@ -111,6 +115,9 @@ const CatalogPage = () => {
               );
             })}
         </ul>
+        <button type="button" className={css.loadmoreBtn} onClick={onLoadmore}>
+          Load More
+        </button>
       </div>
     </>
   );
