@@ -3,11 +3,14 @@ import css from "./Layout.module.css";
 import { Suspense } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import cn from "classnames";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/adverts/selectors";
 
-import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 
 const Layout = () => {
+  const favorites = useSelector(selectFavorites);
+
   return (
     <>
       <header className={css.header} data-theme="light">
@@ -30,13 +33,11 @@ const Layout = () => {
                 >
                   <Icon className={css.heartIcon} id={"heart"} />
                   Favorites
+                  <span className={css.favCount}>({favorites.length})</span>
                 </NavLink>
               </li>
             </ul>
           </nav>
-          <Button className={css.themeBtn} size="small" type="button">
-            <Icon className={css.themeIcon} id={"theme"} />
-          </Button>
         </div>
       </header>
       <main data-theme="light">

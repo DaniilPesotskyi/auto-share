@@ -22,6 +22,11 @@
   transition: fill 250ms, stroke 250ms;
 }
 
+.favActive {
+  fill: var(--primary-clr);
+  stroke: none;
+}
+
 .favIcon:hover {
   fill: rgb(148, 155, 255);
 }

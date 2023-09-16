@@ -38,11 +38,11 @@ const advertsSlice = createSlice({
       state.favorites.push(payload);
     },
     removeFavorite: (state, { payload }) => {
-      state.favorites = state.favorites.filter(
-        (item) => item.id !== payload.id
-      );
+      state.favorites = state.favorites.filter((item) => item.id !== payload);
     },
   },
 });
 
 export const advertsReducer = advertsSlice.reducer;
+
+export const { addFavorite, removeFavorite } = advertsSlice.actions;

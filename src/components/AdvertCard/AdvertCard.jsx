@@ -2,6 +2,9 @@ import css from "./AdvertCard.module.css";
 
 import { useState } from "react";
 import cn from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/adverts/selectors";
+import { addFavorite, removeFavorite } from "../../redux/adverts/advertsSlice";
 
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
@@ -9,6 +12,7 @@ import AdvertModal from "../AdvertModal/AdvertModal";
 
 const AdvertCard = ({ data }) => {
   const {
+    id,
     year,
     make,
     model,
@@ -22,6 +26,8 @@ const AdvertCard = ({ data }) => {
   } = data;
 
   const [isModalOpen, setIsOpenModal] = useState(false);
+  const favorites = useSelector(selectFavorites);
+  const dispatch = useDispatch();
 
   const onModalToggle = () => {
     setIsOpenModal(!isModalOpen);
@@ -45,10 +51,28 @@ const AdvertCard = ({ data }) => {
     return address.split(",")[address.split(",").length - 2].trim();
   };
 
+  const isFavoriteCheck = () => {
+    if (favorites.some((item) => item.id === id)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const onFavoriteToggle = () => {
+    if(isFavoriteCheck()) {
+      dispatch(removeFavorite(id))
+      return
+    }
+    dispatch(addFavorite(data));
+  };
+
   return (
     <div className={css.advertWrap}>
-      <button className={css.favBtn} type="button">
-        <Icon id={"heart"} className={cn(css.favIcon)} />
+      <button className={css.favBtn} type="button" onClick={onFavoriteToggle}>
+        <Icon id={"heart"} className={cn(css.favIcon, {
+          [css.favActive]: isFavoriteCheck()
+        })} />
       </button>
       <div
         className={css.imageWrap}

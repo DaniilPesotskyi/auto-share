@@ -17,7 +17,6 @@
 
 .navigation {
   width: 100%;
-  margin-right: 100px;
 
   display: flex;
   align-items: center;
@@ -96,20 +95,8 @@
   stroke: var(--icon-bg-clr);
 }
 
-.themeBtn {
-  margin: 0;
-  margin-left: auto;
+.favCount {
+  margin-top: 5px;
 
-  background-color: transparent;
-}
-
-.themeBtn:hover {
-  background-color: #abd1ff;
-}
-
-.themeIcon {
-  width: 20px;
-  height: 20px;
-
-  fill: #ffffff;
+  font-size: 12px;
 }
