@@ -1,4 +1,4 @@
-# Car rental in Ukraine
+# AutoShare website
 
 This is a web application for a car rental company in Ukraine. The application consists of three main pages.
 
