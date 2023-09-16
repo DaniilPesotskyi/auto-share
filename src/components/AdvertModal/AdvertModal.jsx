@@ -74,12 +74,12 @@ const AdvertModal = ({ data, onClose }) => {
           {make} <span className={css.model}>{model}</span>, {year}
         </h1>
         <ul className={css.characteristicList}>
-          <li className={css.characteristicItem}>{getCityName()}</li>
-          <li className={css.characteristicItem}>{getCountryName()}</li>
-          <li className={css.characteristicItem}>Id: {id}</li>
-          <li className={css.characteristicItem}>Year: {year}</li>
-          <li className={css.characteristicItem}>Type: {type}</li>
-          <li className={css.characteristicItem}>
+          <li key={'city'} className={css.characteristicItem}>{getCityName()}</li>
+          <li key={'country'} className={css.characteristicItem}>{getCountryName()}</li>
+          <li key={'id'} className={css.characteristicItem}>Id: {id}</li>
+          <li key={'year'} className={css.characteristicItem}>Year: {year}</li>
+          <li key={'type'} className={css.characteristicItem}>Type: {type}</li>
+          <li key={'fuel'} className={css.characteristicItem}>
             Fuel Consumption: {fuelConsumption}
           </li>
           <li className={css.characteristicItem}>Engine Size: {engineSize}</li>
@@ -88,20 +88,20 @@ const AdvertModal = ({ data, onClose }) => {
         <h2 className={css.sectTitle}>Accessories and functionalities:</h2>
         <ul className={css.characteristicList}>
           {accessories.map((a) => (
-            <li className={css.characteristicItem}>{a}</li>
+            <li key={a} className={css.characteristicItem}>{a}</li>
           ))}
         </ul>
         <h2 className={css.sectTitle}>Rental Conditions: </h2>
         <ul className={css.conditionsList}>
-          <li className={css.conditionsItem}>
+          <li key={'age'} className={css.conditionsItem}>
             Minimal age: <span className={css.conditionsValue}>{age}</span>
           </li>
-          <li className={css.conditionsItem}>{driverLicense}</li>
-          <li className={css.conditionsItem}>{requires}</li>
-          <li className={css.conditionsItem}>
+          <li key={'lice'} className={css.conditionsItem}>{driverLicense}</li>
+          <li key={'req'} className={css.conditionsItem}>{requires}</li>
+          <li key={'mil'} className={css.conditionsItem}>
             Mileage: <span className={css.conditionsValue}>{formatedMileage}</span>
           </li>
-          <li className={css.conditionsItem}>
+          <li key={'price'} className={css.conditionsItem}>
             Price: <span className={css.conditionsValue}>{rentalPrice}</span>
           </li>
         </ul>
